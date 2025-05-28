@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+    <title>ITP 104 Final Project Third Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This page explores the cities that I have visited. It shows 3 pictures that I took, and a description of the city. I also have included some of my recommendations or places to visit and their addresses.">
+    <link rel="stylesheet" href="external.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  </head>
+
+  <style>
+    .main1{
+        width:100%;
+        height:35%;
+        position: relative;
+
+    }
+
+    .main1 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .main1p p{
+        
+        
+        font-family: Courier;
+        font-weight: bold;
+        color: white;
+        font-size: 36px;
+        text-shadow: 2px 2px 4px rgb(244, 239, 239);
+    }
+    .main1p{
+        position: absolute;
+        top:10%;
+        left:50%;
+        transform: translate(-50%, 50%);
+        height: auto;
+        
+        /*background-color: yellow;*/
+        display: flex;
+    }
+    .main2{
+        width:100%;
+        height:70%;
+        background-color: rgb(103, 103, 103);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .main2_col1{
+        height: 90%;
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #ffc194;
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .main2_col2{
+        height: 90%;
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #ffc194;
+        border-radius: 10px;
+           
+        
+    }
+    .main2_col3{
+        height: 90%;
+        width: 50%;
+        border: 2px solid #ffc194;
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        
+        
+    }
+    .main2_col3 p{
+        padding: 10px;
+        padding-bottom: 0;
+        font-family: Courier;
+        font-weight: bold;
+        color: white;
+
+    }
+    .main2_col3 li{
+
+        font-family: Courier;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    .main_img{
+        width: 95%;
+        height: 95%;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .sub_img{
+        padding-top: 2.5%;
+        padding-bottom: 2.5%;
+        width: 95%;
+        height: 45%;
+
+        object-fit: cover;
+    }
+  </style>
+
+  <body>
+    <div class="header">
+        <div class="header_left">
+            <img src="img/globe.png" alt="globe" height="30" width="30" style="margin-right: 15px;"/>
+            <a href="final_project_index.html" style="margin-right: 50px; color: inherit; text-decoration: none;">Seungmin's Travel Blog</a>
+           
+        </div>
+        <div class="header_right">
+            <a href="final_project_index.html" style="margin-right: 50px; color: inherit; text-decoration: none;">Home</a>
+            <a href="final_project_second_page.html" style=" color: inherit; text-decoration: none;">Travel History</a>
+        </div>
+    </div>
+    <div class="main1">
+        <img src="https://cdn.pixabay.com/photo/2018/08/20/22/03/california-3620127_1280.jpg" alt="laimg"/>
+        <div class="main1p">
+            <p>My Travel Story-</p>
+            <p id="bigcity">London</p>
+        </div>
+
+    </div>
+
+    <div class="main2">
+        <div class="main2_col1">
+            <img src="https://cdn.pixabay.com/photo/2018/08/11/16/50/london-3598951_1280.jpg" alt="london1" class="main_img" id="img1"/>
+        </div>
+        <div class="main2_col2">
+            <img src="https://cdn.pixabay.com/photo/2017/04/12/00/51/tower-2223305_1280.jpg" alt="london2" class="sub_img" id="img2"/>
+            <img src="https://cdn.pixabay.com/photo/2014/02/02/13/22/telephone-booths-256713_1280.jpg" alt="london3" class="sub_img" id="img3"/>
+        </div>
+        <div class="main2_col3">
+            <p style="font-size: 24px; font-weight: bold; color: #ffc194;" id="cityname">London, UK</p>
+            <p id="citydescription">London is the capital and largest city of both England and the United Kingdom, with a population of 8,866,180 in 2022.</p>
+            <p style="color: yellow;">Seungmin's recommendations:</p>
+            <ul>
+                <li id="cityrecs1">Nando's Covent Garden: 66-68 Chandos Pl, London WC2N 4HG, United Kingdom</li>
+                <li id="cityrecs2">Fortnum & Mason: 181 Piccadilly, London W1A 1ER, United Kingdom</li>
+                <li id="cityrecs3">Natural History Museum: Cromwell Rd, South Kensington, London SW7 5BD, United Kingdom</li>
+            </ul>
+           
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+        University of Southern California, ITP 104, Seungmin Han; Icons designed by Freepik
+    </div>
+
+
+  </body>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const values = {'Tokyo':["Tokyo, Japan","Tokyo, Japan’s busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples.", 
+        "Tokyo Tower: 4 Chome-2-8 Shibakoen, Minato City, Tokyo 105-0011, Japan", "Tokyo Skytree: 1 Chome-1-2 Oshiage, Sumida City, Tokyo 131-0045, Japan",
+        "Ueno Park: Uenokoen, Taito City, Tokyo 110-0007, Japan"], 'Osaka':["Osaka, Japan","Osaka is a designated city in the Kansai region of Honshu in Japan.",
+        "Osaka Castle: 1-1 Osakajo, Chuo Ward, Osaka, 540-0002, Japan", "Universal Studios Japan: 2 Chome-1-33 Sakurajima, Konohana Ward, Osaka, 554-0031, Japan",
+        "Umeda Sky Building: 1 Chome-1-88 Oyodonaka, Kita Ward, Osaka, 531-6023, Japan"], 'Seoul':["Seoul, South Korea", "Seoul, the capital of South Korea, is a huge metropolis where modern skyscrapers, \
+        high-tech subways and pop culture meet Buddhist temples, palaces and street markets.", "Lotte World: 240 Olympic-ro, Songpa District, Seoul, South Korea",
+        "Banpo Hangang Park: 40 Sinbanpo-ro 11-gil, Seocho District, Seoul, South Korea", "Gyeongbokgung Palace: 161 Sajik-ro, Jongno District, Seoul, South Korea"],'Amsterdam':["Amsterdam, Netherlands",
+        "Amsterdam is the Netherlands’ capital, known for its artistic heritage.", "Van Gogh Museum: Museumplein 6, 1071 DJ Amsterdam, Netherlands", "Anne Frank House: Westermarkt 20, 1016 GV Amsterdam, Netherlands"
+        ,"Rijksmuseum: Museumstraat 1, 1071 XX Amsterdam, Netherlands"], 'Dublin':["Dublin, Ireland","Dublin, capital of the Republic of Ireland, is on Ireland’s east coast at the mouth of the River Liffey.",
+        "Guinness Storehouse: St. James's Gate, Dublin 8, D08 VF8H, Ireland", "Kilmainham Gaol: Inchicore Rd, Kilmainham, Dublin 8, D08 RK28, Ireland",
+        "St Patrick's Cathedral: St Patrick's Close, Dublin, D08 H6X3, Ireland"], 'Seattle':["Seattle, WA","Seattle, a city on Puget Sound in the Pacific Northwest, is surrounded by water, mountains and evergreen forests.",
+        "Space Needle: 400 Broad St, Seattle, WA 98109", "Seattle Aquarium: 1483 Alaskan Way Pier 59, Seattle, WA 98101",
+        "Pike Place Market: 85 Pike St, Seattle, WA 98101"], 'Los Angeles':["Los Angeles, CA","Los Angeles is a sprawling Southern California city and the center of the nation’s film and television industry.",
+        "Griffith Observatory: 2800 E Observatory Rd, Los Angeles, CA 90027","Dodger Stadium: 1000 Vin Scully Ave, Los Angeles, CA 90012","The Grove: 189 The Grove Dr, Los Angeles, CA 90036"], 
+        'Washington DC':["Washington DC","Washington, DC, the U.S. capital, is a compact city on the Potomac River, bordering the states of Maryland and Virginia.",
+        "The White House: 1600 Pennsylvania Avenue NW, Washington, DC 20500","Lincoln Memorial: 2 Lincoln Memorial Cir NW, Washington, DC 20002",
+        "Washington Monument: 2 15th St NW, Washington, DC 20024"]} 
+    id = ["cityname", "citydescription", "cityrecs1","cityrecs2","cityrecs3"] 
+
+    const imgval={'Tokyo':["https://cdn.pixabay.com/photo/2019/07/14/08/08/night-4336403_1280.jpg","https://cdn.pixabay.com/photo/2017/03/12/21/30/tokyo-2138168_1280.jpg","https://cdn.pixabay.com/photo/2019/08/28/14/24/tokyo-4436914_1280.jpg"],
+                 'Osaka':["https://cdn.pixabay.com/photo/2020/03/20/18/13/osaka-4951514_1280.jpg","https://cdn.pixabay.com/photo/2020/04/23/04/48/japan-5081054_1280.jpg","https://cdn.pixabay.com/photo/2016/05/17/13/55/osaka-castle-1398125_1280.jpg"],
+                 'Seoul':["https://cdn.pixabay.com/photo/2018/08/18/16/38/seoul-3615092_1280.jpg","https://cdn.pixabay.com/photo/2023/01/26/02/15/books-7744938_1280.jpg","https://cdn.pixabay.com/photo/2022/10/15/16/44/night-view-7523474_1280.jpg"],
+                'Amsterdam':["https://cdn.pixabay.com/photo/2021/11/08/11/40/amsterdam-centraal-station-6778967_1280.jpg","https://cdn.pixabay.com/photo/2021/11/08/11/33/amsterdam-centraal-station-6778948_1280.jpg","https://cdn.pixabay.com/photo/2022/07/26/16/16/amsterdam-7346209_1280.jpg"],
+                'Dublin':["https://cdn.pixabay.com/photo/2021/11/24/08/30/university-6820546_1280.jpg","https://cdn.pixabay.com/photo/2022/08/05/17/18/ireland-7367239_1280.jpg","https://cdn.pixabay.com/photo/2020/03/18/21/47/ireland-4945565_1280.jpg"],
+                'Seattle':["https://cdn.pixabay.com/photo/2017/02/21/05/14/seattle-2084690_1280.jpg","https://cdn.pixabay.com/photo/2019/01/31/11/32/mount-rainier-3966557_1280.jpg","https://cdn.pixabay.com/photo/2023/05/29/22/29/seattle-8027337_1280.jpg"],
+                'Los Angeles':["https://cdn.pixabay.com/photo/2016/04/22/02/13/palm-tree-1344979_1280.jpg","https://cdn.pixabay.com/photo/2018/08/20/22/03/california-3620127_1280.jpg","https://cdn.pixabay.com/photo/2017/06/29/19/57/beverly-hills-hotel-2455977_1280.jpg"],
+                'Washington DC':["https://cdn.pixabay.com/photo/2014/12/01/11/25/capitol-552645_1280.jpg","https://cdn.pixabay.com/photo/2017/07/02/05/06/abraham-lincoln-monument-2463486_1280.jpg","https://cdn.pixabay.com/photo/2018/09/24/02/37/the-washington-monument-3699025_1280.jpg"]}
+    
+    if(urlParams.has("city")){
+        const city = urlParams.get('city');
+        document.getElementById("bigcity").textContent = city;
+        for(let i=0; i<id.length;i++){
+            const tag = document.getElementById(id[i]);
+            tag.textContent = values[city][i];
+        }
+        document.getElementById("img1").src=imgval[city][0];
+        document.getElementById("img2").src=imgval[city][1];
+        document.getElementById("img3").src=imgval[city][2];
+    }
+
+  </script>
+  
+
+</html>
